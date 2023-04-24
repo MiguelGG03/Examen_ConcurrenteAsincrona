@@ -49,3 +49,17 @@ class Banco:
                     self.agregar_movimiento(Movimiento(dni, monto))
                     return True
             return False
+        
+if __name__=='__main__':
+    bank=Banco()
+    c1=Cuenta("123", 1000)
+    c2=Cuenta("456", 2000)
+    bank.agregar_cliente(c1)
+    bank.agregar_cliente(c2)
+    bank.agregar_dinero("123", 100)
+    bank.agregar_dinero("456", 200)
+    bank.retirar_dinero("123", 50)
+    bank.retirar_dinero("456", 100)
+    print(bank.getMovimientos())
+
+    
