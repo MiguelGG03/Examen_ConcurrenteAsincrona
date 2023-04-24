@@ -1,6 +1,6 @@
-from Banco import Banco
-from Cliente import Cuenta
-from Movimiento import Movimiento
+from Problema1.Banco import Banco
+from Problema1.Cliente import Cuenta
+
 import concurrent.futures
 
 def multiproceso_agregar(bank, NUM_PROCES,cantid):
