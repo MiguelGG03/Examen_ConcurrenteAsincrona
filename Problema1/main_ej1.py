@@ -1,7 +1,7 @@
 from Banco import Banco
 from Cliente import Cuenta
 from Movimiento import Movimiento
-import multiprocessing
+import concurrent.futures
 
 
 def main_ej1():
@@ -16,21 +16,17 @@ def main_ej1():
     NUM_PROCES_2 = 20
     NUM_PROCES_3 = 60
 
-    pool = multiprocessing.Pool(processes=NUM_PROCES_1)
+    with concurrent.futures.ProcessPoolExecutor() as pool:
+        #Agregación de todo el dinero
+        futures = [pool.submit(bank.agregar_dinero, ("123",100)) for _ in range(NUM_PROCES_1)]    
 
-    #Agregación de todo el dinero
-
-    for _ in range(NUM_PROCES_1):
-        results.append(pool.apply_async(bank.agregar_dinero, ("123",100)))
-
-    for result in results:
-        result.wait()
+        #Espera de que lleguen todos los procesos
+        for future in concurrent.futures.as_completed(futures):
+            cuenta, cantidad = future.result()
+            print("Se ha agregado {}€ a la cuenta {}".format(cantidad, cuenta))
+            bank.agregar_dinero(cuenta, cantidad)
 
     bank.ImprimeTodosLosMovimientos()
-
-    pool.close()
-    pool.join()
-
 
 
 

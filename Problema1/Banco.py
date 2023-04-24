@@ -31,22 +31,22 @@ class Banco:
                 return movimiento
         return None
     
-    def agregar_dinero(self, dni, monto):
-        if monto > 0 :
+    def agregar_dinero(self, dni, cantidad):
+        if cantidad > 0 :
             cliente = self.buscar_cliente(dni)
             if cliente is not None:
-                cliente.agregar_dinero(monto)
-                self.agregar_movimiento(Movimiento(dni, monto))
+                cliente.agregar_dinero(cantidad)
+                self.agregar_movimiento(Movimiento(dni, cantidad))
                 return True
             return False
     
 
-    def retirar_dinero(self, dni, monto):
-        if monto < 0 :
+    def retirar_dinero(self, dni, cantidad):
+        if cantidad < 0 :
             cliente = self.buscar_cliente(dni)
             if cliente is not None:
-                if cliente.retirar_dinero(monto):
-                    self.agregar_movimiento(Movimiento(dni, monto))
+                if cliente.retirar_dinero(cantidad):
+                    self.agregar_movimiento(Movimiento(dni, cantidad))
                     return True
             return False
         
