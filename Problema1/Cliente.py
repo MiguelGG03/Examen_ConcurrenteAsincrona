@@ -21,3 +21,6 @@ class Cuenta:
                 self.saldo += monto
                 return True
         return False
+    
+    def __str__(self):
+        return f"DNI: {self.dni} Saldo: {self.saldo}"
