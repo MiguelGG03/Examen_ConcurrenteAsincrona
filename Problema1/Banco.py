@@ -37,7 +37,7 @@ class Banco:
             if cliente is not None:
                 cliente.agregar_dinero(cantidad)
                 self.agregar_movimiento(Movimiento(dni, cantidad))
-                return True
+                return dni, cantidad
             return False
     
 
@@ -47,12 +47,12 @@ class Banco:
             if cliente is not None:
                 if cliente.retirar_dinero(cantidad):
                     self.agregar_movimiento(Movimiento(dni, cantidad))
-                    return True
+                    return dni,cantidad
             return False
         
     def ImprimeTodosLosMovimientos(self):
         for i in range(len(self.getMovimientos())):
-            print(bank.getMovimientos()[i].__str__())
+            print(self.getMovimientos()[i].__str__())
         
 if __name__=='__main__':
     bank=Banco()
