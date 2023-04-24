@@ -27,3 +27,11 @@ class Banco:
             if movimiento.getDni() == dni:
                 return movimiento
         return None
+    
+    def agregar_dinero(self, dni, monto):
+        cliente = self.buscar_cliente(dni)
+        if cliente is not None:
+            cliente.agregar_dinero(monto)
+            self.agregar_movimiento(Movimiento(dni, monto))
+            return True
+        return False
