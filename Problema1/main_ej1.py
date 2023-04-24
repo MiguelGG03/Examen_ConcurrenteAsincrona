@@ -50,9 +50,9 @@ def main_ej1():
     print("------------------------------------------\n")
     print(f"Despues de agregar el dinero - {cliente.__str__()}\n")
 
-    multiproceso_agregar(bank, NUM_PROCES_1, -100)
-    multiproceso_agregar(bank, NUM_PROCES_2, -50)
-    multiproceso_agregar(bank, NUM_PROCES_3, -20)
+    multiproceso_retirar(bank, NUM_PROCES_1, -100)
+    multiproceso_retirar(bank, NUM_PROCES_2, -50)
+    multiproceso_retirar(bank, NUM_PROCES_3, -20)
 
     print("------------------------------------------\n")
     print(f"Despues de retirar el dinero - {cliente.__str__()}\n")    
