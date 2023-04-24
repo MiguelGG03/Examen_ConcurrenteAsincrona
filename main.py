@@ -7,7 +7,7 @@ def main():
         if resp2=="1":
             main_ej1()
         elif resp2=="2":
-            print("Ejercicio 2")
+            print("No esta hecho el ejercicio")
         resp=input("Desea continuar? (S/N): ")
 
 if __name__ == "__main__":
