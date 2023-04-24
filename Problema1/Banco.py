@@ -50,6 +50,10 @@ class Banco:
                     return True
             return False
         
+    def ImprimeTodosLosMovimientos(self):
+        for i in range(len(bank.getMovimientos())):
+            print(bank.getMovimientos()[i].__str__())
+        
 if __name__=='__main__':
     bank=Banco()
     c1=Cuenta("123", 1000)
@@ -60,5 +64,6 @@ if __name__=='__main__':
     bank.agregar_dinero("456", 200)
     bank.retirar_dinero("123", -50)
     bank.retirar_dinero("456", -100)
-    print(bank.getMovimientos()[0].__str__())
+    bank.ImprimeTodosLosMovimientos()
+    
 
