@@ -58,8 +58,7 @@ if __name__=='__main__':
     bank.agregar_cliente(c2)
     bank.agregar_dinero("123", 100)
     bank.agregar_dinero("456", 200)
-    bank.retirar_dinero("123", 50)
-    bank.retirar_dinero("456", 100)
-    print(bank.getMovimientos())
+    bank.retirar_dinero("123", -50)
+    bank.retirar_dinero("456", -100)
+    print(bank.getMovimientos()[0].__str__())
 
-    

@@ -18,6 +18,6 @@ class Cuenta:
     def retirar_dinero(self, monto:float):
         if monto < 0:
             if self.saldo >= monto:
-                self.saldo -= monto
+                self.saldo += monto
                 return True
         return False
