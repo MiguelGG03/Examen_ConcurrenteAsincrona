@@ -1,3 +1,6 @@
+from Cliente import Cuenta
+from Movimiento import Movimiento
+
 class Banco:
     
     def __init__(self):
@@ -29,9 +32,20 @@ class Banco:
         return None
     
     def agregar_dinero(self, dni, monto):
-        cliente = self.buscar_cliente(dni)
-        if cliente is not None:
-            cliente.agregar_dinero(monto)
-            self.agregar_movimiento(Movimiento(dni, monto))
-            return True
-        return False
+        if monto > 0 :
+            cliente = self.buscar_cliente(dni)
+            if cliente is not None:
+                cliente.agregar_dinero(monto)
+                self.agregar_movimiento(Movimiento(dni, monto))
+                return True
+            return False
+    
+
+    def retirar_dinero(self, dni, monto):
+        if monto < 0 :
+            cliente = self.buscar_cliente(dni)
+            if cliente is not None:
+                if cliente.retirar_dinero(monto):
+                    self.agregar_movimiento(Movimiento(dni, monto))
+                    return True
+            return False
