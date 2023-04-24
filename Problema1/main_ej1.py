@@ -28,7 +28,7 @@ def multiproceso_retirar(bank, NUM_PROCES,cantid):
             try:
                 result = future.result()
                 cuenta, cantidad = result
-                bank.agregar_dinero(cuenta, cantidad)
+                bank.retirar_dinero(cuenta, cantidad)
             except Exception as e:
                 print(f"Error al ejecutar el proceso: {e}")
 
@@ -47,11 +47,17 @@ def main_ej1():
     multiproceso_agregar(bank, NUM_PROCES_2, 50)
     multiproceso_agregar(bank, NUM_PROCES_3, 20)
 
+    print("------------------------------------------\n")
+    print(f"Despues de agregar el dinero - {cliente.__str__()}\n")
+
     multiproceso_agregar(bank, NUM_PROCES_1, -100)
     multiproceso_agregar(bank, NUM_PROCES_2, -50)
     multiproceso_agregar(bank, NUM_PROCES_3, -20)
 
-    
+    print("------------------------------------------\n")
+    print(f"Despues de retirar el dinero - {cliente.__str__()}\n")    
+
+    print("------------------------------------------\n")
 
     bank.ImprimeTodosLosMovimientos()
 

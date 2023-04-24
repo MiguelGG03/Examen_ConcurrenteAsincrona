@@ -44,8 +44,8 @@ class Banco:
     def retirar_dinero(self, dni, cantidad):
         if cantidad < 0 :
             cliente = self.buscar_cliente(dni)
-            if cliente is not None:
-                if cliente.retirar_dinero(cantidad):
+            if cliente is not None and cliente.getSaldo() >= cantidad:
+                    cliente.retirar_dinero(cantidad)
                     self.agregar_movimiento(Movimiento(dni, cantidad))
                     return dni,cantidad
             return False
