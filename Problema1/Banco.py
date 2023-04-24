@@ -51,7 +51,7 @@ class Banco:
             return False
         
     def ImprimeTodosLosMovimientos(self):
-        for i in range(len(bank.getMovimientos())):
+        for i in range(len(self.getMovimientos())):
             print(bank.getMovimientos()[i].__str__())
         
 if __name__=='__main__':

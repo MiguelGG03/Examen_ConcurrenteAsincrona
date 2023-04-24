@@ -18,6 +18,8 @@ def main_ej1():
 
     pool = multiprocessing.Pool(processes=NUM_PROCES_1)
 
+    #Agregación de todo el dinero<
+
     for _ in range(NUM_PROCES_1):
         results.append(pool.apply_async(bank.agregar_dinero, (100,)))
 
@@ -28,6 +30,8 @@ def main_ej1():
 
     pool.close()
     pool.join()
+
+    bank.ImprimeTodosLosMovimientos()
 
 
 
