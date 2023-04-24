@@ -20,9 +20,12 @@ def main_ej1():
 
         #Espera de que lleguen todos los procesos
         for future in concurrent.futures.as_completed(futures):
-            cuenta, cantidad = future.result()
-            print("Se ha agregado {}€ a la cuenta {}".format(cantidad, cuenta))
-            bank.agregar_dinero(cuenta, cantidad)
+            try:
+                result = future.result()
+                cuenta, cantidad = result
+                bank.agregar_dinero(cuenta, cantidad)
+            except Exception as e:
+                print(f"Error al ejecutar el proceso: {e}")
 
     bank.ImprimeTodosLosMovimientos()
 
