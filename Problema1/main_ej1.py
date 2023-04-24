@@ -6,8 +6,6 @@ import concurrent.futures
 
 def main_ej1():
 
-    results = []
-
     bank = Banco()
     cliente = Cuenta("123",100) # DNI 123 Saldo 100€
     bank.agregar_cliente(cliente)
@@ -18,7 +16,7 @@ def main_ej1():
 
     with concurrent.futures.ProcessPoolExecutor() as pool:
         #Agregación de todo el dinero
-        futures = [pool.submit(bank.agregar_dinero, ("123",100)) for _ in range(NUM_PROCES_1)]    
+        futures = [pool.submit(bank.agregar_dinero, "123",100) for _ in range(NUM_PROCES_1)]    
 
         #Espera de que lleguen todos los procesos
         for future in concurrent.futures.as_completed(futures):
