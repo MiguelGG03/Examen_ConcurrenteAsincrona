@@ -21,7 +21,7 @@ def main_ej1():
     #Agregación de todo el dinero
 
     for _ in range(NUM_PROCES_1):
-        results.append(pool.apply_async(bank.agregar_dinero, args=(("123",100))))
+        results.append(pool.apply_async(bank.agregar_dinero, ("123",100)))
 
     for result in results:
         result.wait()
