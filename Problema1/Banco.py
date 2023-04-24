@@ -1,5 +1,5 @@
-from Cliente import Cuenta
-from Movimiento import Movimiento
+from Problema1.Cliente import Cuenta
+from Problema1.Movimiento import Movimiento
 
 class Banco:
     
