@@ -34,6 +34,11 @@ class Banca:
                 cliente.pagoApuesta(apuesta*36)
                 self.__din-= (apuesta*36)
             
-        elif(tipo=="PARIDAD"):
+        elif(tipo=="PAR" or tipo=="IMPAR"):
+            if(self.checkParidad(cliente, tipo)):
+                cliente.pagoApuesta(apuesta*2)
+                self.__din-= (apuesta*2)
+
+
 
         
