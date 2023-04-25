@@ -14,3 +14,7 @@ class Cliente:
     
     def pagoApuesta(self, dinero):
         self.__din+= dinero
+
+    def martingala(self):
+        apuesta= 10
+        
