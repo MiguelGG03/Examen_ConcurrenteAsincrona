@@ -1,4 +1,5 @@
 import random
+import Cliente
 
 class Banca:
 
@@ -9,8 +10,30 @@ class Banca:
     def getNum(self):
         return self.__num
     
-    def pagarApuesta(self, cliente, tipo, apuesta):
-
+    def checkConcreto(self,cliente:Cliente):
+        if(cliente.getNum()==self.__num):
+            return True
+        else:
+            return False
+        
+    def checkParidad(self,cliente:Cliente, tipo:"PAR" or "IMPAR"):
+        if tipo=="PAR":
+            if(cliente.getNum()%2==0):
+                return True
+            else:
+                return False
+        else:
+            if(cliente.getNum()%2!=0):
+                return True
+            else:
+                return False
+            
+    def pagarApuesta(self, cliente:Cliente, tipo, apuesta):
         if(tipo=="CONCRETO"):
+            if(self.checkConcreto(cliente)):
+                cliente.pagoApuesta(apuesta*36)
+                self.__din-= (apuesta*36)
+            
+        elif(tipo=="PARIDAD"):
 
         
